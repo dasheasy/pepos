@@ -55,5 +55,5 @@
           tbl.prepend(div);
 //            var tbl = document.querySelector('[aria-label="Home"]');
 //            tbl.append(btn)
-        }, 1000);
+        }, 2000);
 })();
