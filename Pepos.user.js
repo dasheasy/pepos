@@ -47,7 +47,7 @@
 			simulateClick(csvlink);
 		};
         setTimeout(function(){
-          var tbl = document.getElementById("change-username-tooltip-id")
+          var tbl = document.getElementById("reddit-logo")
           var div = document.createElement("div")
           //div.class = tbl.firstChild.class
           div.append(btn)
