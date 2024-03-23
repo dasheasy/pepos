@@ -37,21 +37,26 @@
             var titles = []
             var imgs = document.getElementsByTagName("img");
             for (const img of imgs) {
-                var m = img.title.match(/:(\d+):/)
-                if (m) {
-                    titles.push(m[1] + ":" + img.src)
+                var cls = img.getAttribute("class")
+                if (cls && cls.includes("emote")) {
+                    var p = img.parentElement
+                    while (!p.href) {
+                        p = p.parentElement
+                    }
+                    titles.push([
+                        p.href, img.src
+                    ].join(","))
                 }
             }
-            var csv_string = titles.join(',');
+            var csv_string = titles.join('\n');
 			csvlink.setAttribute('href', 'data:text/csv;charset=utf-8,' + encodeURIComponent(csv_string));
 			simulateClick(csvlink);
 		};
         setTimeout(function(){
-          var tbl = document.getElementById("reddit-logo")
+          var tbl = document.getElementById("right-sidebar-container")
           var div = document.createElement("div")
-          //div.class = tbl.firstChild.class
           div.append(btn)
-          console.log("pepos  " + tbl)
+          console.log("pepos " + tbl)
           tbl.prepend(div);
 //            var tbl = document.querySelector('[aria-label="Home"]');
 //            tbl.append(btn)
